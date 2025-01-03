@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Rota</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Adicionando Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Detalhes da Rota</h1>
+  </header>
+
+  <section id="routeDetails">
+    <!-- Detalhes da rota serão inseridos aqui via JavaScript -->
+  </section>
+
+  <div id="map" style="height: 400px;"></div> <!-- Área do Mapa -->
+
+  <footer>
+    <button onclick="history.back()">Voltar</button>
+  </footer>
+
+  <script>
+    // Função para pegar os parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const rotaId = urlParams.get('rota');
+
+    // Dados fictícios para cada rota com coordenadas de origem e destino
+    const rotas = {
+      1: {
+        origem: "Bairro Alto",
+        destino: "Cais do Sodré",
+        tempo: "15 minutos",
+        custo: "2,00€",
+        sustentabilidade: "Alta",
+        origemCoords: [38.7109, -9.1412], // Coordenadas fictícias de Bairro Alto
+        destinoCoords: [38.7118, -9.1399]  // Coordenadas fictícias de Cais do Sodré
+      },
+      2: {
+        origem: "Baixa",
+        destino: "Rossio",
+        tempo: "10 minutos",
+        custo: "1,50€",
+        sustentabilidade: "Média",
+        origemCoords: [38.7102, -9.1393], // Coordenadas fictícias de Baixa
+        destinoCoords: [38.7115, -9.1390]  // Coordenadas fictícias de Rossio
+      }
+    };
+
+    // Exibe os detalhes da rota e o mapa
+    function showRouteDetails() {
+      const route = rotas[rotaId];
+      if (route) {
+        // Exibe as informações da rota
+        document.getElementById('routeDetails').innerHTML = `
+          <h2>Detalhes da Rota: ${route.origem} - ${route.destino}</h2>
+          <p><strong>Tempo de Viagem:</strong> ${route.tempo}</p>
+          <p><strong>Custo:</strong> ${route.custo}</p>
+          <p><strong>Sustentabilidade:</strong> ${route.sustentabilidade}</p>
+        `;
+        
+        // Cria o mapa com a rota
+        const map = L.map('map').setView(route.origemCoords, 13);  // Define a visão inicial do mapa
+
+        // Adiciona o tile layer do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adiciona os marcadores para origem e destino
+        L.marker(route.origemCoords).addTo(map)
+          .bindPopup('Origem: ' + route.origem)
+          .openPopup();
+
+        L.marker(route.destinoCoords).addTo(map)
+          .bindPopup('Destino: ' + route.destino);
+
+        // Adiciona a linha conectando origem e destino
+        const routeLine = [route.origemCoords, route.destinoCoords];
+        L.polyline(routeLine, { color: 'blue' }).addTo(map);
+      } else {
+        document.getElementById('routeDetails').innerHTML = "<p>Rota não encontrada.</p>";
+      }
+    }
+
+    // Chama a função para mostrar os detalhes ao carregar a página
+    showRouteDetails();
+  </script>
+</body>
+</html>

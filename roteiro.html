@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procurar Rota Sustentável</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Procurar Rota Sustentável</h1>
+  </header>
+
+  <section class="route-form">
+    <label for="origem">Origem</label>
+    <select id="origem">
+      <option value="Bairro Alto">Bairro Alto</option>
+      <option value="Cais do Sodré">Cais do Sodré</option>
+      <option value="Areeiro">Areeiro</option>
+      <option value="Alfama">Alfama</option>
+      <option value="Baixa">Baixa</option>
+      <!-- Adicione outras localizações de Lisboa -->
+    </select>
+
+    <label for="destino">Destino</label>
+    <select id="destino">
+      <option value="Bairro Alto">Bairro Alto</option>
+      <option value="Cais do Sodré">Cais do Sodré</option>
+      <option value="Areeiro">Areeiro</option>
+      <option value="Alfama">Alfama</option>
+      <option value="Baixa">Baixa</option>
+      <!-- Adicione outras localizações de Lisboa -->
+    </select>
+
+    <button onclick="showRoute()">Procurar Rota</button>
+
+    <p id="disclaimer">As informações apresentadas são fictícias e apenas para visualização.</p>
+  </section>
+
+  <footer>
+    <button onclick="history.back()">Voltar</button>
+  </footer>
+
+  <script>
+    function showRoute() {
+      const origem = document.getElementById('origem').value;
+      const destino = document.getElementById('destino').value;
+      alert(`Procurando a rota sustentável entre ${origem} e ${destino}`);
+
+      // Aqui você pode fazer a lógica de exibir a rota mais sustentável, o custo e tempo
+      window.location.href = "resultado-rota.html";
+    }
+  </script>
+</body>
+</html>

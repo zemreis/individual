@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado da Rota Sustentável</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Resultado da Rota Sustentável</h1>
+  </header>
+
+  <section class="route-details">
+    <h2>Origem: Bairro Alto</h2>
+    <h2>Destino: Cais do Sodré</h2>
+    <p>Rota mais sustentável: Ônibus elétrico</p>
+    <p>Tempo de espera: 10 minutos</p>
+    <p>Custo: €2,50</p>
+    <p>As informações apresentadas são fictícias e apenas para visualização.</p>
+  </section>
+
+  <section class="map" id="map" style="height: 500px;"></section>
+
+  <footer>
+    <button onclick="history.back()">Voltar</button>
+  </footer>
+
+  <script>
+    function initMap() {
+      const map = L.map('map').setView([38.7169, -9.1395], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      const origemLocation = [38.7169, -9.1395];
+      const destinoLocation = [38.7251, -9.1497];
+
+      L.marker(origemLocation).addTo(map).bindPopup("<b>Origem: Bairro Alto</b>");
+      L.marker(destinoLocation).addTo(map).bindPopup("<b>Destino: Cais do Sodré</b>");
+
+      const routeCoordinates = [origemLocation, destinoLocation];
+      L.polyline(routeCoordinates, { color: 'blue' }).addTo(map);
+      map.fitBounds(L.latLngBounds(routeCoordinates));
+    }
+
+    window.onload = initMap;
+  </script>
+</body>
+</html>

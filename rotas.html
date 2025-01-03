@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotas Salvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Rotas Salvas</h1>
+  </header>
+
+  <section class="saved-routes">
+    <ul id="savedRoutesList">
+      <!-- Links para detalhes das rotas -->
+      <li><a href="detalhes-rota.html?rota=1">Rota 1: Bairro Alto - Cais do Sodré</a></li>
+      <li><a href="detalhes-rota.html?rota=2">Rota 2: Baixa - Rossio</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <button onclick="history.back()">Voltar</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

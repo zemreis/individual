@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Rota Sustentável</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Buscar Rota Sustentável</h1>
+  </header>
+
+  <section class="route-search">
+    <label for="origem">Origem</label>
+    <select id="origem">
+      <option value="">Selecione a Origem</option>
+      <option value="Bairro Alto">Bairro Alto</option>
+      <option value="Cais do Sodré">Cais do Sodré</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Rossio">Rossio</option>
+      <option value="Areeiro">Areeiro</option>
+      <option value="Alfama">Alfama</option>
+      <option value="Parque das Nações">Parque das Nações</option>
+      <option value="Avenida da Liberdade">Avenida da Liberdade</option>
+      <option value="Campo de Ourique">Campo de Ourique</option>
+      <option value="Mouraria">Mouraria</option>
+    </select>
+
+    <label for="destino">Destino</label>
+    <select id="destino">
+      <option value="">Selecione o Destino</option>
+      <option value="Bairro Alto">Bairro Alto</option>
+      <option value="Cais do Sodré">Cais do Sodré</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Rossio">Rossio</option>
+      <option value="Areeiro">Areeiro</option>
+      <option value="Alfama">Alfama</option>
+      <option value="Parque das Nações">Parque das Nações</option>
+      <option value="Avenida da Liberdade">Avenida da Liberdade</option>
+      <option value="Campo de Ourique">Campo de Ourique</option>
+      <option value="Mouraria">Mouraria</option>
+    </select>
+
+    <button onclick="findRoute()">Buscar</button>
+  </section>
+
+  <footer>
+    <button onclick="history.back()">Voltar</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

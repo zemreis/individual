@@ -1,0 +1,94 @@
+/* Estilos básicos para layout responsivo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.menu {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu ul li a:hover {
+  color: #4CAF50;
+}
+
+.route-form {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.route-form select, .route-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+footer button {
+  background-color: #e0e0e0;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+footer button:hover {
+  background-color: #ccc;
+}
+
+p#disclaimer {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
